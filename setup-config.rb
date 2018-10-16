@@ -2,6 +2,8 @@
 
 require 'liquid'
 
+Liquid::Template.error_mode = :strict
+
 common_vars = Hash.new.tap do |h|
   env_vars = %w(home user 
 rails_home passenger_pid_file delayed_job_pid_file
