@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export SRC_DIR=$HOME/src
-export NGINX_SRC_DIR=$SRC_DIR/nginx-1.8.1
+export NGINX_SRC_DIR=$SRC_DIR/nginx
 export MOD_ZIP_DIR=$SRC_DIR/mod_zip
 export HTTP_DIGEST_AUTH_DIR=$SRC_DIR/nginx-http-auth-digest
 export PID_DIR=$HOME/run
@@ -11,6 +11,24 @@ export NGINX2_TARGET_DIR=$HOME/nginx2
 export NGINX_USER=lib-medusa-downloader
 export NGINX_GROUP=lib-medusa-ncsa
 
+export NGINX_VERSION=1.12.2
+export NGINX_TARBALL=nginx-$NGINX_VERSION.tar.gz
+export NGINX_TARBALL_URL="https://nginx.org/download/$NGINX_TARBALL"
+export MOD_ZIP_REPO_URL="https://github.com/evanmiller/mod_zip.git"
+export NGINX_HTTP_AUTH_DIGEST_REPO_URL="https://github.com/omonar/nginx-http-auth-digest.git"
+export NGINX_SERVER_NAMES="this-server.example.com another-name.example.com"
+export AWS_BUCKET_NAME=bucket-name
+export AWS_REGION=region
+export NGINX_STORAGE_DIR=$HOME/storage
+export NGINX_DIGEST_USERS_FILE=$NGINX_TARGET_DIR/conf/digest_users
+
+export DOWNLOADER_REPO_URL="https://github.com/medusa-project/medusa-downloader.git"
+
 export RAILS_HOME=$HOME/medusa-downloader
 export RAILS_ENV=production
 export PASSENGER_PID_FILE=$PID_DIR/passenger.pid
+export DELAYED_JOB_PID_FILE=$PID_DIR/delayed_job.pid
+
+export MONIT_CONTACT="someone@example.com"
+export MONIT_MAILSERVER=mail.server.address
+

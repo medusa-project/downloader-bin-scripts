@@ -8,11 +8,9 @@ worker_processes  1;
 
 #pid        logs/nginx.pid;
 
-
 events {
     worker_connections  1024;
 }
-
 
 http {
     include       mime.types;
@@ -39,7 +37,7 @@ http {
 
     server {
         listen       8080;
-        server_name  download.library.illinois.edu fedora-prod.library.illinois.edu;
+        server_name  {{ nginx_server_names }};
 
         #charset koi8-r;
 
@@ -53,9 +51,16 @@ http {
 	#htdigest or the like
         location /downloads/create {
             auth_digest 'request_creators';
-#            auth_digest_user_file /services/medusa/nginx/conf/digest_users;
-            auth_digest_user_file /home/lib-medusa-downloader/nginx/conf/digest_users;
+            auth_digest_user_file {{ nginx_digest_users_file }};
             proxy_pass http://localhost:3000/downloads/create;
+        }
+
+	location ^~ /{{ aws_bucket_name }}/ {
+	    proxy_pass https://{{ aws_bucket_name }}.s3.{{ aws_region }}.amazonaws.com/;
+            proxy_no_cache '1';
+	    proxy_buffering off;
+            proxy_cache off;
+	    internal;
         }
 
 	location ^~ /internal {

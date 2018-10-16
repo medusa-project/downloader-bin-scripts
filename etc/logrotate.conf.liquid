@@ -3,7 +3,7 @@ weekly
 minsize 10M
 
 # Create new (empty) log files after rotating old ones
-create 644 medusa medusa
+create 644 {{ user }} {{ user }}
 
 # Keep log files for 8 weeks
 rotate 8
@@ -14,7 +14,7 @@ compress
 ###
 # Rotate production log file
 ###
-/home/lib-medusa-downloader/medusa-downloader/log/production.log {
+{{ rails_home }}/log/production.log {
     missingok
     notifempty
 }
@@ -22,7 +22,7 @@ compress
 ###
 # Rotate delayed_job log file
 ###
-/home/lib-medusa-downloader/medusa-downloader/log/delayed_job.log {
+{{ rails_home }}/log/delayed_job.log {
     missingok
     notifempty
 }
@@ -30,7 +30,7 @@ compress
 ###
 # Rotate passenger log file
 ###
-/home/lib-medusa-downloader/medusa-downloader/log/passenger.3000.log {
+{{ rails_home }}/log/passenger.3000.log {
     missingok
     notifempty	
 }
@@ -38,12 +38,12 @@ compress
 ###
 # Rotate nginx log files
 ###
-/home/lib-medusa-downloader/nginx/logs/access.log {
+{{ nginx_target_dir }}/logs/access.log {
     missingok
     notifempty	
 }
 
-/home/lib-medusa-downloader/nginx/logs/error.log {
+{{ nginx_target_dir }}/logs/error.log {
     missingok
     notifempty	
 }

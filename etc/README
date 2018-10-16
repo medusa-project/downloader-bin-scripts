@@ -1,3 +1,5 @@
 These are to give an idea how these files should be structured,
-based on real working examples. You'll need to modify them
-appropriately, however.
+based on real working examples. I've attempted to use liquid
+to make them into real templates that we can actually use
+to generate files. That being said, you'll probably want to make
+any modifications here to preserve that process.

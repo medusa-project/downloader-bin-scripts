@@ -1,0 +1,24 @@
+set httpd port 2812
+    allow localhost
+set alert {{ monit_contact }}
+set mailserver {{ monit_mailserver }}
+
+##check local disk space
+check filesystem rootfs with path / 
+  if space usage > 85% then alert
+  alert medusa-admin@lists.illinois.edu
+
+check process nginx with pidfile {{ nginx_target_dir }}/logs/nginx.pid
+  start program = "{{ home }}/bin/start-nginx.sh"
+  stop program = "{{ home }}/bin/stop-nginx.sh"
+check process nginx2 with pidfile {{ nginx2_target_dir }}/logs/nginx.pid
+  start program = "{{ home }}/bin/start-nginx2.sh"
+  stop program = "{{ home }}/bin/stop-nginx2.sh"
+check process medusa-downloader-rails with pidfile {{ passenger_pid_file }}
+  group medusa
+  start program = "{{ home }}/bin/start-rails.sh"
+  stop program = "{{ home }}/bin/stop-rails.sh"
+check process medusa-downloader-delayed-job with pidfile {{ delayed_job_pid_file }}
+  group medusa
+  start program = "{{ home }}/bin/start-delayed-job.sh"
+  stop program = "{{ home }}/bin/stop-delayed-job.sh"
