@@ -1,0 +1,50 @@
+# Rotate log files weekly
+weekly
+minsize 10M
+
+# Create new (empty) log files after rotating old ones
+create 644 medusa medusa
+
+# Keep log files for 8 weeks
+rotate 8
+
+# Compress old log files by default
+compress 
+
+###
+# Rotate production log file
+###
+/home/lib-medusa-downloader/medusa-downloader/log/production.log {
+    missingok
+    notifempty
+}
+
+###
+# Rotate delayed_job log file
+###
+/home/lib-medusa-downloader/medusa-downloader/log/delayed_job.log {
+    missingok
+    notifempty
+}
+
+###
+# Rotate passenger log file
+###
+/home/lib-medusa-downloader/medusa-downloader/log/passenger.3000.log {
+    missingok
+    notifempty	
+}
+
+###
+# Rotate nginx log files
+###
+/home/lib-medusa-downloader/nginx/logs/access.log {
+    missingok
+    notifempty	
+}
+
+/home/lib-medusa-downloader/nginx/logs/error.log {
+    missingok
+    notifempty	
+}
+

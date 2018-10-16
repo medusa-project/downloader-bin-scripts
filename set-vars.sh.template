@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export SRC_DIR=$HOME/src
+export NGINX_SRC_DIR=$SRC_DIR/nginx-1.8.1
+export MOD_ZIP_DIR=$SRC_DIR/mod_zip
+export HTTP_DIGEST_AUTH_DIR=$SRC_DIR/nginx-http-auth-digest
+export PID_DIR=$HOME/run
+
+export NGINX_TARGET_DIR=$HOME/nginx
+export NGINX2_TARGET_DIR=$HOME/nginx2
+export NGINX_USER=lib-medusa-downloader
+export NGINX_GROUP=lib-medusa-ncsa
+
+export RAILS_HOME=$HOME/medusa-downloader
+export RAILS_ENV=production
+export PASSENGER_PID_FILE=$PID_DIR/passenger.pid

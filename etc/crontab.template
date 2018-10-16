@@ -1,0 +1,8 @@
+@reboot monit -d 60
+
+#Rotate logs as appropriate
+0 3 * * * /usr/sbin/logrotate -s $HOME/etc/logrotate.status $HOME/etc/logrotate.conf
+
+#remove old downloader requests
+0 2 * * * $HOME/bin/delete-old-requests.sh
+                                                                                                                                                                                                    
