@@ -15,6 +15,7 @@ events {
 http {
     include       mime.types;
     default_type  application/octet-stream;
+    auth_digest_zone zone=users:1m;
 
     #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
     #                  '$status $body_bytes_sent "$http_referer" '
@@ -50,7 +51,7 @@ http {
 	#NOTE: You'll need to create the appropriate auth digest user file using
 	#htdigest or the like
         location /downloads/create {
-            auth_digest 'request_creators';
+            auth_digest "request_creators" zone=users;
             auth_digest_user_file {{ nginx_digest_users_file }};
             proxy_pass http://localhost:3000/downloads/create;
         }

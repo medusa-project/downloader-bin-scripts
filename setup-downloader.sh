@@ -88,6 +88,7 @@ cd $HOME/bin
 ruby setup-config.rb
 cd $HOME/bin/etc
 cp monitrc ~/.monitrc
+chmod 700 ~/.monitrc
 echo "Installed .monitrc"
 mkdir -p $HOME/etc
 cp logrotate.conf $HOME/etc/logrotate.conf
