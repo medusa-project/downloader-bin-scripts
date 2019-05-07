@@ -51,9 +51,9 @@ http {
 	#NOTE: You'll need to create the appropriate auth digest user file using
 	#htdigest or the like
         location /downloads/create {
+            proxy_pass http://localhost:3000/downloads/create;
             auth_digest "request_creators" zone=users;
             auth_digest_user_file {{ nginx_digest_users_file }};
-            proxy_pass http://localhost:3000/downloads/create;
         }
 
 	location ^~ /{{ aws_bucket_name }}/ {
