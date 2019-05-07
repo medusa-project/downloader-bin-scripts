@@ -27,6 +27,3 @@ npm install -g yarn
 #install rclone
 curl https://rclone.org/install.sh | bash
 
-#install leiningen for clojure-zipper
-curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > /usr/local/bin/lein
-chmod 755 /usr/local/bin/lein
