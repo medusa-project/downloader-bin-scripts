@@ -22,3 +22,6 @@ check process medusa-downloader-delayed-job with pidfile {{ delayed_job_pid_file
   group medusa
   start program = "{{ home }}/bin/start-delayed-job.sh"
   stop program = "{{ home }}/bin/stop-delayed-job.sh"
+check filesystem rclone-mount path "{{rclone_mountpoint}}"
+  start program = "{{ home }}/bin/rclone-mount.sh"
+  stop program = "{{ home}}/bin/rclone-unmount.sh"

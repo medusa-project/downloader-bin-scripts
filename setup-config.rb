@@ -10,7 +10,8 @@ rails_home passenger_pid_file delayed_job_pid_file
 nginx_target_dir nginx2_target_dir nginx_server_names
 nginx_digest_users_file
 aws_bucket_name aws_region 
-monit_contact monit_mailserver )
+monit_contact monit_mailserver 
+rclone_mountpoint)
   env_vars.each do |var|
     h[var] = ENV[var.upcase]
   end
