@@ -31,4 +31,9 @@ export DELAYED_JOB_PID_FILE=$PID_DIR/delayed_job.pid
 
 export MONIT_CONTACT="someone@example.com"
 export MONIT_MAILSERVER=mail.server.address
-
+ 
+export RCLONE_REMOTE=downloader
+export RCLONE_BUCKET=medusa-main
+export RCLONE_MOUNTPOINT="$HOME/mnt/$RCLONE_BUCKET-ro"
+export RCLONE_PIDDIR=$HOME/run
+export RCLONE_PIDFILE=$RCLONE_PIDDIR/rclone.pid
