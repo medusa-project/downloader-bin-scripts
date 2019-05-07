@@ -14,10 +14,10 @@ YUM_PACKAGES="$YUM_PACKAGES bzip2 openssl-devel readline-devel"
 YUM_PACKAGES="$YUM_PACKAGES httpd-tools"
 #needed for rails app
 YUM_PACKAGES="$YUM_PACKAGES libcurl-devel postgresql-devel gcc-c++"
-yum install $YUM_PACKAGES
+yum --assumeyes install $YUM_PACKAGES
 
 #I didn't get the necessary g++ until I installed this
-yum groupinstall 'Development Tools'
+yum --assumeyes groupinstall 'Development Tools'
 
 #install yarn globally
 npm install -g yarn
