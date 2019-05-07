@@ -37,3 +37,5 @@ export RCLONE_BUCKET=medusa-main
 export RCLONE_MOUNTPOINT="$HOME/mnt/$RCLONE_BUCKET-ro"
 export RCLONE_PIDDIR=$HOME/run
 export RCLONE_PIDFILE=$RCLONE_PIDDIR/rclone.pid
+
+export CLOJURE_ZIPPER_DIR=$HOME/clojure-zipper

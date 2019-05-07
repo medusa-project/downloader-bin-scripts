@@ -81,6 +81,18 @@ rbenv install -s $RUBY_VERSION
 rbenv global $RUBY_VERSION
 rbenv shell $RUBY_VERSION
 
+##Get clojure-zipper
+if [ ! -d $CLOJURE_ZIPPER_DIR ]; then
+    echo "Getting clojure-zipper source"
+    git clone https://github.com/medusa-project/clojure-zipper.git $CLOJURE_ZIPPER_DIR
+else
+    echo "Updating clojure-zipper"
+    cd $CLOJURE_ZIPPER_DIR
+    git pull
+fi
+echo "Building clojure-zipper.jar"
+$HOME/bin/build-clojure-zipper.sh
+
 ##Install any missing conf files - crontab, logrotate, nginx, nginx2, monit - this will
 ##be with templates and running some ruby
 echo "Installing config files - copies will be in $HOME/bin/etc."
