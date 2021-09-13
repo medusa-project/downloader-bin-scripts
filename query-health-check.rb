@@ -11,8 +11,6 @@ instance_id = File.open('/var/lib/cloud/data/instance-id', &:readline).strip
 ENV['RAILS_ENV'] == 'demo' ? downloader_uri = URI('https://demo.download.library.illinois.edu/downloads/status') : downloader_uri = URI('https://download.library.illinois.edu/downloads/status')
 
 downloader_response = Net::HTTP.get_response(downloader_uri)
-puts ENV['RAILS_ENV']
-puts downloader_uri
 
 begin
     rclone_monit_status = JSON.parse(downloader_response.body)['rcloneMonitStatus']
