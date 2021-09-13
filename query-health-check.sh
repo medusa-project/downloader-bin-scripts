@@ -2,4 +2,4 @@
 
 source $HOME/bin/set-vars.sh
 
-ruby /home/downloader/bin/test.rb
+ruby /home/downloader/bin/query-health-check.rb
