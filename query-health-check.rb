@@ -21,4 +21,5 @@ begin
 rescue JSON::ParserError => e
     downloader_log = {"InstanceId" => instance_id, "downloader_code" => downloader_response.code, "downloader_message" => "Error parsing downloader health check JSON"}
 end
-logger.info(downloader_log.to_json)
+
+downloader_response.code == "200" ? logger.info(downloader_log.to_json) : logger.error(downloader_log.to_json)
