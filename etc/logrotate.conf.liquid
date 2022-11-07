@@ -20,6 +20,14 @@ compress
 }
 
 ###
+# Rotate demo log file
+###
+{{ rails_home }}/log/demo.log {
+    missingok
+    notifempty
+}
+
+###
 # Rotate delayed_job log file
 ###
 {{ rails_home }}/log/delayed_job.log {

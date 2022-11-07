@@ -2,3 +2,5 @@ set-vars.sh
 *~
 #*#
 clojure-zipper.jar
+
+.idea

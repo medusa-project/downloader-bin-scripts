@@ -5,4 +5,6 @@
 
 #remove old downloader requests
 0 2 * * * $HOME/bin/delete-old-requests.sh
-                                                                                                                                                                                                    
+
+#query health check
+*/5 * * * * $HOME/bin/query-health-check.sh
