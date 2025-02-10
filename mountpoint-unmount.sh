@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./set-vars.sh
+source /home/downloader/bin/set-vars.sh
 
 mkdir -p $MOUNTPOINT_DIR
 
