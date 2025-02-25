@@ -10,8 +10,6 @@ instance_id = File.open('/var/lib/cloud/data/instance-id', &:readline).strip
 
 ENV['RAILS_ENV'] == 'demo' ? downloader_uri = URI('https://demo.download.library.illinois.edu/downloads/status') : downloader_uri = URI('https://download.library.illinois.edu/downloads/status')
 
-logger.info("Downloader uri: #{downloader_uri}")
-
 downloader_response = Net::HTTP.get_response(downloader_uri)
 
 begin
